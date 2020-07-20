@@ -1,0 +1,37 @@
+<?php
+$product = $this->GetProduct();
+//$skues = [];
+//foreach ($product as $item) {
+//    $skues[] = $item->getData();
+//}
+//var_dump($skues);
+//$name = [];
+//foreach ($skues as $sku){
+//    $name[] = $block->getProductBySku($sku)->getName();
+//}
+//var_dump($name);
+//$special = [];
+//foreach ($name as $aka)
+//{
+// $pos = strpos($aka, 'Special');
+// if ($pos !== false)
+// {
+// $special[] = $aka;
+// }
+//}
+//var_dump($special);
+?>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Is Special</th>
+    </tr>
+    <?php foreach ($product as $item) { ?>
+        <tr>
+            <td><?php echo $item->getData('entity_id') ?></td>
+            <td><?php echo $block->getProductBySku($item->getData('sku'))->getName(); ?></td>
+            <td><?php echo $item->getData('is_special') ?></td>
+        </tr>
+    <?php } ?>
+</table>
