@@ -1,0 +1,27 @@
+<?php
+$record = $block->getEditRecord();
+?>
+<h2>Form Create</h2>
+<form action="<?php echo $block->getBaseUrl() . 'Viet/index/save'; ?>" method="post" enctype="multipart/form-data">
+    <label>Name</label>
+    <input type="text" name="name">
+    <label>Price</label>
+    <input type="text" name="price">
+    <label>Status</label>
+    <div>
+        <input type="radio" name="status" value="1" checked> Show
+        <input type="radio" name="status" value="0"> Hide
+    </div>
+    <label>Create_at</label>
+    <div>
+        <input type="datetime-local" name="create_at">
+    </div>
+    <label>Category</label>
+    <input type="text" name="category">
+    <label>Image</label>
+    <div>
+        <input type="file" name="image">
+    </div>
+    <br>
+    <button type="submit" class="primary">Add</button>
+</form>

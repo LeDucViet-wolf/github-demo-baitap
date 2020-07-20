@@ -1,0 +1,29 @@
+<?php
+//$blockObj = $block->getLayout()->createBlock('Magetop\Helloworld\Block\Edit');
+$id = $block->getId();
+$c = $block->get($id);
+?>
+
+<h2>Form Edit</h2>
+<form action="<?php echo $block->getBaseUrl() . 'Viet/index/save/id/'.$id; ?>" METHOD="post" enctype="multipart/form-data">
+    <label>Name</label>
+    <input type="text" name="name" value="<?php echo $c->getData('name') ?>">
+    <label>Price</label>
+    <input type="text" name="price" value="<?php echo $c->getData('price') ?>">
+    <label>Status</label>
+    <div>
+        <input type="radio" name="status" value="1" checked> Show
+        <input type="radio" name="status" value="0"> Hide
+    </div>
+    <label>Create_at</label>
+    <div>
+        <input type="datetime-local" name="create_at" value="<?php echo $c->getData('create_at') ?>">
+    </div>
+    <label>Category</label>
+    <input type="text" name="category" value="<?php echo $c->getData('category') ?>">
+    <label>Image</label>
+    <div>
+        <input type="file" name="image" value="<?php echo $c->getData('image') ?>">
+    </div>
+    <button type="submit" class="action primary">Edit</button>
+</form>

@@ -1,0 +1,35 @@
+<?php
+    $product = $block->GetProduct();
+?>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Image</th>
+        <th>Create_at</th>
+        <th>Category</th>
+        <th>Action</th>
+    </tr>
+    <?php
+    foreach ($product as $data) { ?>
+        <tr>
+            <td><?php echo $data->getData('id') ?></td>
+            <td><?php echo $data->getData('name') ?></td>
+            <td><?php echo $data->getData('price') ?></td>
+            <td><?php echo $data->getData('status')?'Show':'Hide' ?></td>
+            <td>
+                <a target="_blank" href="<?php echo $block->getBaseUrl() .$data->getData('image'); ?>"><?= $data->getData('image') ?></a>
+            </td>
+            <td><?php echo $data->getData('create_at') ?></td>
+            <td><?php echo $data->getData('category') ?></td>
+            <td>
+                <a class="action primary" href="<?= $block->getUrl('Viet/index/edit').'id/'.$data->getData('id'); ?>">Edit</a>
+                <a class="action primary" href="<?= $block->getUrl('Viet/index/delete').'?id='.$data->getData('id'); ?>">Delete</a>
+            </td>
+        </tr>
+    <?php } ?>
+    <a class="action primary" href="<?= $block->getUrl('Viet/index/insert') ?>">Add</a>
+</table>
