@@ -7,7 +7,6 @@ use Magento\Framework\Event\ObserverInterface;
 
 class Isspecial implements ObserverInterface
 {
-
     public function execute(Observer $observer)
     {
 //        if (null !== $subject->getCustomAttribute('is_special')) {
